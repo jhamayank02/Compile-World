@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    background-color: black;
+    padding: 7px 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #767676;
+}
+
+.header .logo{
+    font-size: 18px;
+    font-weight: 700;
+    color: #dc6161;
+    text-decoration: underline;
+}
+
+.header select{
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 1px 8px;
+}
+
+.header select option{
+    color: #000;
+}

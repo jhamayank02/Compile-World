@@ -1,0 +1,39 @@
+.code-container{
+    height: 100%;
+    border-right: 1px solid #d9d9d9;
+    padding: 10px 10px;
+}
+
+.code-area{
+    height: 85%;
+}
+
+.code-area textarea{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: blue;
+    font-size: 16px;
+    padding: 2px 2px;
+    resize: none;
+    overflow: scroll;
+}
+
+.actions{
+    text-align: end;
+    margin-top: 12px;
+}
+
+.actions .btn{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 3px 5px;
+    font-size: 16px;
+    background-color: green;
+}
+
+.actions .btn:hover{
+    background-color: transparent;
+}

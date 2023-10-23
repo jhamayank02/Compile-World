@@ -1,12 +1,18 @@
 import '../css/Input.css';
 
-function Input() {
+function Input(props) {
+
+  const setInputHandler = ()=>{
+    const input = document.getElementById('input');
+    props.inputChangeHandler(input.value);
+  }
+
   return (
     <div className='input-container'>
         <div className='heading'>Input</div>
 
         <div className='input-area'>
-            <textarea placeholder='Input...'></textarea>
+            <textarea id='input' className={props.theme} onChange={setInputHandler} placeholder='Input...'></textarea>
         </div>
     </div>
   )

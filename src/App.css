@@ -1,9 +1,27 @@
 .container{
   display: flex;
   min-height: 93vh;
-  /* background-color: black; */
-  /* color: white; */
   overflow: hidden;
+}
+
+.vs{
+  background-color: #fffffe;
+  color: black;
+}
+
+.vs-dark{
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.hc-black{
+  background-color: #000000;
+  color: white;
+}
+
+.hc-light{
+  background-color: #ffffff;
+  color: black;
 }
 
 .container > .col{

@@ -2,22 +2,40 @@ import '../css/Header.css';
 
 function Header(props) {
 
-    const {theme, setThemeHandler} = props;
+    const {theme, setThemeHandler, setLanguageHandler} = props;
 
     const themeChangeHandler = ()=>{
         const themes = document.getElementById('themes');
-        console.log("SElected " + themes.value)
         setThemeHandler(themes.value);
     }
 
-  return (
-    <div className='header'>
-        <div className='logo'>Online Compiler</div>
+    const languageChangeHandler = ()=>{
+        const language = document.getElementById('language');
+        setLanguageHandler(language.value);
+    }
 
-        <select id='themes' onChange={themeChangeHandler}>
-            <option>Light</option>
-            <option>Dark</option>
-        </select>
+  return (
+    <div className={`header + ${theme}`}>
+        <div className='logo'>Compile World</div>
+
+        <div>
+          <select className={theme} id='themes' onChange={themeChangeHandler}>
+            <option>vs</option>
+            <option>vs-dark</option>
+            <option>hc-black</option>
+            <option>hc-light</option>
+          </select>
+          <select className={theme} id='language' onChange={languageChangeHandler}>
+            <option>Java</option>
+            <option>Python</option>
+            <option>C</option>
+            <option>C++</option>
+            <option>GoLang</option>
+            <option>C#</option>
+            <option>NodeJs</option>
+          </select>
+        </div>
+        
     </div>
   )
 }

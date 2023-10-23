@@ -1,16 +1,22 @@
 import { useState } from 'react';
+import language from 'react-syntax-highlighter/dist/esm/languages/hljs/1c';
 import '../css/Code.css';
+import CodeBlock from './CodeBlock';
 
 function Code(props) {
 
-    const [code, setCode] = useState('');
+    const {theme, language, submitCodeHandler} = props;
 
-    const codeChangeHandler = (e) => {
-        setCode(e.target.value);
+    const [code, setCode] = useState('// Start writing your code');
+
+    const codeChangeHandler = (value) => {
+        console.log("Code " + code)
+        setCode(value);
+        console.log("Code " + code)
     }
 
     const runCodeHandler = ()=>{
-        props.submitCodeHandler(code);
+        submitCodeHandler(code);
     }
 
   return (
@@ -18,11 +24,12 @@ function Code(props) {
         <div className='heading'>Code</div>
 
         <div className='code-area'>
-            <textarea onChange={(e) => codeChangeHandler(e)} placeholder='// Write your code here'></textarea>
+            <CodeBlock code={code} codeChangeHandler={codeChangeHandler} language={language} theme={theme} />
         </div>
 
         <div className='actions'>
-            <button className='btn' onClick={runCodeHandler}>Run Code</button>
+            <button className="run-btn" onClick={runCodeHandler}>Run Code</button>
+            <button className="clear-btn" onClick={()=>codeChangeHandler("")}>Clear</button>
         </div>
 
     </div>

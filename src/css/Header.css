@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    background-color: black;
+    /* background-color: black; */
     padding: 7px 10px;
     justify-content: space-between;
     align-items: center;
@@ -8,17 +8,22 @@
 }
 
 .header .logo{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
-    color: #dc6161;
-    text-decoration: underline;
+    /* color: #dc6161; */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #dc6161;
+    color: #E91E63;
+    /* text-decoration: underline; */
 }
 
 .header select{
     background-color: transparent;
-    color: white;
+    /* color: white; */
     font-size: 16px;
     padding: 1px 8px;
+    /* text-transform: capitalize; */
+    margin-right: 5px;
 }
 
 .header select option{

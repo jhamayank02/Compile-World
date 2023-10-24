@@ -17,3 +17,14 @@
     resize: none;
     overflow: scroll;
 }
+
+.error{
+    color: red;
+}
+
+@media screen and (max-width: 820px) {
+    .output-container{
+        height: 30vh;
+        margin-bottom: 20px;
+    }
+}

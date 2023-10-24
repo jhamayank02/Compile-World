@@ -1,22 +1,26 @@
 import { useState } from 'react';
-import language from 'react-syntax-highlighter/dist/esm/languages/hljs/1c';
 import '../css/Code.css';
 import CodeBlock from './CodeBlock';
+import loadingSpinner from '../assets/loading_spinner.gif';
 
 function Code(props) {
 
-    const {theme, language, submitCodeHandler} = props;
+    const {loading, theme, language, submitCodeHandler, inputChangeHandler, outputChangeHandler} = props;
 
     const [code, setCode] = useState('// Start writing your code');
 
     const codeChangeHandler = (value) => {
-        console.log("Code " + code)
         setCode(value);
-        console.log("Code " + code)
     }
 
     const runCodeHandler = ()=>{
         submitCodeHandler(code);
+    }
+
+    const clearHandler = ()=>{
+        codeChangeHandler('');
+        inputChangeHandler('');
+        outputChangeHandler('');
     }
 
   return (
@@ -28,8 +32,11 @@ function Code(props) {
         </div>
 
         <div className='actions'>
-            <button className="run-btn" onClick={runCodeHandler}>Run Code</button>
-            <button className="clear-btn" onClick={()=>codeChangeHandler("")}>Clear</button>
+            {loading && <button className="loading">
+                <img src={loadingSpinner}alt='loading'></img>    
+            </button>}
+            {!loading && <button className="run-btn" onClick={runCodeHandler}>Run Code</button>}
+            <button className="clear-btn" onClick={clearHandler}>Clear</button>
         </div>
 
     </div>

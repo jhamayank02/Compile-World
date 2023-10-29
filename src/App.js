@@ -4,8 +4,7 @@ import Code from './components/Code';
 import Header from './components/Header';
 import Input from './components/Input';
 import Output from './components/Output';
-import * as qs from 'qs'
-import axios from 'axios';
+import Footer from './components/Footer';
 
 const languageCode = {
   "Java": "java",
@@ -41,41 +40,39 @@ function App() {
   const outputChangeHandler = (val)=>{
     setOutput(val);
   }
-  
+
   const fetchData = async (code) => {
     setLoading(true);
-    var data = qs.stringify({
+
+    fetch('https://compileworldbackend.onrender.com/compile', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
         'code': code,
         'language': language === 'Python' ? 'py' : languageCode[language],
         'input': input
-    });
-    var config = {
-        method: 'post',
-        url: 'https://api.codex.jaagrav.in',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data : data
-    };
-
-    axios(config)
-      .then(function (response) {
-        const outputData = response.data
-
-        if(outputData.error !== ""){
-          setOutput(outputData.error);
+      })})
+      .then((res) => {
+          return res.json();
+      })
+      .then((data) => {
+        if(data.error){
+          setOutput(data.output);
           setError(true);
+          setLoading(false);
         }
         else{
-          setOutput(outputData.output)
+          setOutput(data.output);
           setError(false);
+          setLoading(false);
         }
-        setLoading(false);
       })
-      .catch(function (error) {
-        setOutput(error.response.data.error);
-        setError(true);
-        setLoading(false);
+      .catch((err) => {
+          setOutput(err);
+          setError(true);
+          setLoading(false);
       });
   }
 
@@ -104,6 +101,7 @@ function App() {
           <Output theme={theme} output={output} error={error} />
         </div>
       </div>
+      <Footer theme={theme} />
     </>
   );
 }

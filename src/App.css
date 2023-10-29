@@ -31,26 +31,21 @@
 .heading{
   font-size: 18px;
   font-weight: 500;
-  /* border-bottom: 3px solid green; */
   padding-bottom: 6px;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #292929;;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #a7a3a3;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Compile-World/static/css/main.1cde8817.css",
+    "main.js": "/Compile-World/static/js/main.6fc68284.js",
+    "static/js/787.9c339605.chunk.js": "/Compile-World/static/js/787.9c339605.chunk.js",
+    "index.html": "/Compile-World/index.html",
+    "main.1cde8817.css.map": "/Compile-World/static/css/main.1cde8817.css.map",
+    "main.6fc68284.js.map": "/Compile-World/static/js/main.6fc68284.js.map",
+    "787.9c339605.chunk.js.map": "/Compile-World/static/js/787.9c339605.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1cde8817.css",
+    "static/js/main.6fc68284.js"
+  ]
+}

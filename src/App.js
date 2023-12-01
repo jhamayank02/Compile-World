@@ -55,7 +55,12 @@ function App() {
         'input': input
       })})
       .then((res) => {
-          return res.json();
+        if(res.status === 500){
+          setOutput("Internal server error");
+          setError(true);
+          setLoading(false);
+        }
+        return res.json();
       })
       .then((data) => {
         if(data.error){
